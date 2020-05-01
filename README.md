@@ -37,7 +37,7 @@ CARLA시뮬레이터에서 하고 싶은 대부분은 [Carla GitHub](https://git
 - 다른 NPC, 즉, 동적 장애물은 어떻게 제어할까? 이는 생각보다 쉽다. 코드 상에서 NPC를 소환하고 이를 내 agent를 제어하듯이 하면 된다. 기본적인 방법은 모두 동일하며, 내 agent가 가진 센서를 그대로 사용하게 할 수 있다. 
   - ex) 동적 장애물이 충돌이 일어나면, 리셋을 시킨다던가....
 
-> This repository has **non-profit purposes**.
-> It is going to be updated, futher.
-> If you have any question, 
+> This repository has **non-profit purposes**.\
+> It is going to be updated, futher.\
+> If you have any question, \
 > please contact to msk930512@gmail.com.
