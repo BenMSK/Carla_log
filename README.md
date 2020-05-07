@@ -21,14 +21,14 @@ $ ~/carla-0.9.x && ./CarlaUE4.sh
 ***
 ##### [2] 서버 접속:
 \
-CARLA 서버가 실행이 된다면, 기본적으로 Town03이 소환된다. (물론, 서버 default map 또한, [1] 서버 실행에서 인자로 조절 가능)
-실행된 서버에서 ```carla-0.9.x/PythonAPI/examples```로 들어가게 되면, 많은 python script를 보게 될 것이다. 이 중, 직접적으로 내 차량을 돌리는 핵심 코드는 '**manual_control.py**'이다. 이를 실행하면 현재 실행된 서버에 접속하게 된다.
+CARLA 서버가 실행이 된다면, 기본적으로 Town03이 소환된다. (물론, 서버 default map 또한, [1] 서버 실행에서 인자로 조절 가능)  
+실행된 서버에서 ```carla-0.9.x/PythonAPI/examples```로 들어가게 되면, 많은 python script를 보게 될 것이다. 이 중, 직접적으로 내 차량을 돌리는 핵심 코드는 '**manual_control.py**'이다. 이를 실행하면 현재 실행된 서버에 접속하게 된다.  
 추가적으로 서버에 다른 NPC를 소환하고 싶다면, '**spawn_npc.py**' 코드를 보자.
 ***
 ##### [3] Tip:
-위 두가지 과정만 진행하면 기본적인 CARLA 실행 및 내 차량을 돌리는 것이 가능해진다.
+위 두가지 과정만 진행하면 기본적인 CARLA 실행 및 내 차량을 돌리는 것이 가능해진다.  
 CARLA시뮬레이터에서 하고 싶은 대부분은 [Carla GitHub](https://github.com/carla-simulator/carla "칼라 깃허브") 의 이슈를 참고하자. 생각하는 대부분의 것들이 있다.
-이 중, 괜찮다고 생각하는 Tip을 몇가지 적어보려고 한다.
+이 중, 괜찮다고 생각하는 Tip을 몇가지 적어보려고 한다.  
 - CARLA 빌드 시, python api 또한 빌드하게 된다 (```make PythonAPI```). 이때, 기본 CARLA 함수들은 C++로 구성되어 있으므로 이를 **.so** 로 묶어 python에서 **.egg**  파일을 import하여 사용하게 된다. 특히, **.egg** 을 import할 때, import가 안되는 문제가 생길 때가 있다. **.so**를 못찾았다고 불러올 수 없다고 한다. 그래서 필자는 CARLA의 가장 최근 버전을 빌드한 package([nightly build](https://github.com/carla-simulator/carla/blob/master/Docs/download.md "칼라 최신"))를 다운받아서 그 안에 있는 **.so**를 복사하여 사용하였다. 에러는 없어졌지만, 서버 창에서는 버전이 안맞는다는 말이 나온다. 하지만, 사용하는데는 문제가 없다.
   - (**이 방법은 근본적인 해결방법이 아니다. 즉, 0.9.9 (현재 CARLA의 최신 버전)를 빌드하고 위 같은 에러가 나온다면 nightly build 버전과는 차이가 없어, 이 방법이 통한다. 하지만, 0.9.9 이하의 버전 (0.9.0-.8)을 빌드하고 nightly build 버전을 사용한다면 안될 가능성이 크다. 필자의 후배는 위 에러가 없이 잘 사용하므로, 조금 더 공부가 필요한 부분.**)
 - CARLA에서 laser sensor같은 것 또한 사용 가능하다. 이는 *manual_control.py*의 없는 class다. (왜 없는지는 모르겠다...) class의 이름은 LineOfSightSenser. 코드는 다음과 같고, *manual_control.py*에 새로운 class로 추가하면 사용이 가능하다.
