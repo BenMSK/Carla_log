@@ -7,8 +7,8 @@ https://carla.readthedocs.io/en/latest/build_linux/
 
 칼라가 빌드가 되었다고 가정하고 설명을 진행한다.
 
-***
-##### [1] 서버 실행: 
+***  
+### [1] 서버 실행: 
 
 CARLA는 기본적으로 Unreal이라는 Engine을 통해 CARLA 서버를 구축하고 이를 Python API와 연동하여 사용한다.
 실행 코드는 다음과 같다.
@@ -18,14 +18,14 @@ $ ~/carla-0.9.x && ./CarlaUE4.sh
 추가적으로 서버의 fps, visualiation quality, 화면의 크기 및 화면 on/off 조절등 다양한 것들이 인자로 조절이 가능하다. 그 중 몇가지를 보여준다면,
 - Carla 0.9.x display off mode commands --> ```DISPLAY= ./CarlaUE4.sh -opengl```
 - Carla 0.9.x display on mode commands --> ```./CarlaUE4.sh -windowed -ResX=640 -Resy=480 -quality-level=Low```
-***
-##### [2] 서버 접속:
-\
+***  
+### [2] 서버 접속:
+
 CARLA 서버가 실행이 된다면, 기본적으로 Town03이 소환된다. (물론, 서버 default map 또한, [1] 서버 실행에서 인자로 조절 가능)  
 실행된 서버에서 ```carla-0.9.x/PythonAPI/examples```로 들어가게 되면, 많은 python script를 보게 될 것이다. 이 중, 직접적으로 내 차량을 돌리는 핵심 코드는 '**manual_control.py**'이다. 이를 실행하면 현재 실행된 서버에 접속하게 된다.  
 추가적으로 서버에 다른 NPC를 소환하고 싶다면, '**spawn_npc.py**' 코드를 보자.
-***
-##### [3] Tip:
+***  
+### [3] Tip:
 위 두가지 과정만 진행하면 기본적인 CARLA 실행 및 내 차량을 돌리는 것이 가능해진다.  
 CARLA시뮬레이터에서 하고 싶은 대부분은 [Carla GitHub](https://github.com/carla-simulator/carla "칼라 깃허브") 의 이슈를 참고하자. 생각하는 대부분의 것들이 있다.  
 이 중, 괜찮다고 생각하는 Tip을 몇가지 적어보려고 한다.  
