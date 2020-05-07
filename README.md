@@ -1,7 +1,7 @@
 # CARLA [0.9.X] 실행 방법
 
-본 글에서는 칼라 [0.9.x]의 실행 방법에 대해 설명한다.
-칼라를 Source로 Linux 빌드하는 방법을 초점으로 한다.
+본 글에서는 칼라 [0.9.x]의 실행 방법에 대해 설명한다.  
+칼라를 Source로 Linux 빌드하는 방법을 초점으로 한다.  
 빌드는 다음 링크를 참고한다.
 https://carla.readthedocs.io/en/latest/build_linux/
 
