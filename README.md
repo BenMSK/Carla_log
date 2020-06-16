@@ -63,6 +63,8 @@ $ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unr
 이제 Maps 폴더에 있는 .umap을 수정하고 저장(Ctrl+s)한 후, Unreal Editor를 종료한다. 이제 터미널에서 ```make package```를 진행하면 빌드된 칼라 실행 파일이 **Dist** 폴더에 존재하게 된다.  
 ```make PythonAPI```로 파이썬 .so 혹은 .egg를 만들고 칼라를 이용하면 된다.  
 0.9.6과 0.9.7 버전의 경우는 UnrealEngine 4.22를 사용하기에, 서로 Unreal Editor에서 만든 맵이 호환된다. 반면, 위 Engine 버전과 다른 4.23, 4.24를 사용하는 칼라 0.9.8, 0.9.9는 호환 불가.  
+다른 컴퓨터에서 수정한 .umap을 불러오고 쓰려면, Unreal Engine 버전이 동일해야되며 carla 폴더에서 'Unreal/CarlaUE4/Content/Carla/Maps'에 'Town0x.umap, Town0x_BuiltData.uasset'을 복붙하고 make launch하면 해당 map이 불러
+
 
 > This repository has **non-profit purposes**.\
 > It is going to be updated, futher.\
