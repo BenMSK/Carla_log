@@ -38,6 +38,32 @@ CARLA시뮬레이터에서 하고 싶은 대부분은 [Carla GitHub](https://git
 - 다른 NPC, 즉, 동적 장애물은 어떻게 제어할까? 이는 생각보다 쉽다. 코드 상에서 NPC를 소환하고 이를 내 agent를 제어하듯이 하면 된다. 기본적인 방법은 모두 동일하며, 내 agent가 가진 센서를 그대로 사용하게 할 수 있다. 
   - ex) 동적 장애물이 충돌이 일어나면, 리셋을 시킨다던가....
 
+### [4] Build previous source version:
+이전 칼라 버전을 구축하는 방법을 설명한다. 현재 칼라 최신 버전은 0.9.9.x로 0.9.7 버전을 우분투 16.04에서 구축하는 것을 예로 든다.  
+https://carla.readthedocs.io/en/0.9.7/how_to_build_on_linux/  
+위 링크에서 순서대로 진행한다. 우선, **Install the build tools and dependencies** 로 requirements를 모두 다운 받는다.  
+Unreal Engine을 설치한다. 이때, 0.9.7의 Unreal Engine 버전은 4.22가 필요하므로 잘 확인하여 git clone한다.  
+그리고 순서대로 진행하여 Unreal Engine을 빌드한다. 여기까지는 큰 어려움이 존재하지 않는다.  
+이제 Carla 0.9.7을 받자. documentation에 나온대로 받을 경우, Carla 최신 버전이 clone 되므로 다음과 같이 git clone을 한다.  
+```
+$ git clone -b 0.9.7 https://github.com/carla-simulator/carla
+```
+0.9.7은 carla github에서 tag 되어 있는 순간을 clone한다는 것이다. github에서 tag 위치로 가서 .zip을 다운받고 풀면 git error가 뜨게되어 위 방법으로 진행하였다.  
+[**주의**] clone이 완료된 후, ```Update.sh``` 커맨드를 입력하는 순간 최신 Carla 버전으로 다시 구축되게 되므로 이 커맨드는 사용하지 않는다.
+~./bashrc에 UnrealEngine_4.22 폴더의 환경 변수를 추가한다.  
+```
+export UE4_ROOT=~/UnrealEngine_4.22
+```
+이 상태에서 ```make launch```를 진행하면 오류가 발생한다. make launch의 경우는 칼라 map을 수정할 때 필요한 부분을 Unreal 폴더에서 빌드하는 과정인데, map asset이 존재하지 않아서 위 asset을 다운받아야한다.  
+이는 documentation에 **Assets repository**를 그대로 진행하면 된다.  
+```
+$ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unreal/CarlaUE4/Content/Carla
+```
+다시 ```make launch```를 진행하면 오류 없이 Unreal Editor가 실행된다. 0.9.7 버전을 제외하고 bitbucket에서 받게 되면 현 최신 버전인 0.9.9와 호환되는 map들이 다운받아지므로 주의.  
+이제 Maps 폴더에 있는 .umap을 수정하고 저장(Ctrl+s)한 후, Unreal Editor를 종료한다. 이제 터미널에서 ```make package```를 진행하면 빌드된 칼라 실행 파일이 **Dist** 폴더에 존재하게 된다.  
+```make PythonAPI```로 파이썬 .so 혹은 .egg를 만들고 칼라를 이용하면 된다.  
+0.9.6과 0.9.7 버전의 경우는 UnrealEngine 4.22를 사용하기에, 서로 Unreal Editor에서 만든 맵이 호환된다. 반면, 위 Engine 버전과 다른 4.23, 4.24를 사용하는 칼라 0.9.8, 0.9.9는 호환 불가.  
+
 > This repository has **non-profit purposes**.\
 > It is going to be updated, futher.\
 > If you have any question, \
