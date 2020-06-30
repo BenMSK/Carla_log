@@ -72,3 +72,5 @@ $ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unr
 > It is going to be updated, futher.\
 > If you have any question, \
 > please contact to msk930512@gmail.com.
+
+> I plan to translate this '**log**' into English.
