@@ -50,7 +50,7 @@ Unreal Engine을 설치한다. 이때, 0.9.7의 Unreal Engine 버전은 4.22가 
 ```
 $ git clone -b 0.9.7 https://github.com/carla-simulator/carla
 ```
-0.9.7은 carla github에서 tag 되어 있는 순간을 clone한다는 것이다. github에서 tag 위치로 가서 .zip을 다운받고 풀면 git error가 뜨게되어 위 방법으로 진행하였다.  
+**0.9.7은 carla github에서 tag 되어 있는 순간을 clone**한다는 것이다. github에서 tag 위치로 가서 .zip을 다운받고 풀면 git error가 뜨게되어 위 방법으로 진행하였다.  
 [**주의**] clone이 완료된 후, ```Update.sh``` 커맨드를 입력하는 순간 최신 Carla 버전으로 다시 구축되게 되므로 이 커맨드는 사용하지 않는다.
 ~./bashrc에 UnrealEngine_4.22 폴더의 환경 변수를 추가한다.  
 ```
@@ -61,7 +61,7 @@ export UE4_ROOT=~/UnrealEngine_4.22
 ```
 $ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unreal/CarlaUE4/Content/Carla
 ```
-다시 ```make launch```를 진행하면 오류 없이 Unreal Editor가 실행된다. 0.9.7 버전을 제외하고 bitbucket에서 받게 되면 현 최신 버전인 0.9.9와 호환되는 map들이 다운받아지므로 주의.  
+다시 ```make launch```를 진행하면 오류 없이 Unreal Editor가 실행된다. 위 커맨드에서 **0.9.7**을 제외하고 bitbucket에서 받게 되면 현 최신 버전인 0.9.9와 호환되는 map들이 다운받아지므로 **주의**.  
 이제 Maps 폴더에 있는 .umap을 수정하고 저장(Ctrl+s)한 후, Unreal Editor를 종료한다. 이제 터미널에서 ```make package```를 진행하면 빌드된 칼라 실행 파일이 **Dist** 폴더에 존재하게 된다. 폴더의 이름은 '**LinuxNoEditor**'로 이 폴더의 ./CarlaUE4.sh을 실행하면 된다.  
 ```make PythonAPI```로 파이썬 .so 혹은 .egg를 만들고 칼라를 이용하면 된다.  
 0.9.6과 0.9.7 버전의 경우는 UnrealEngine 4.22를 사용하기에, 서로 Unreal Editor에서 만든 맵이 호환된다. 반면, 위 Engine 버전과 다른 4.23, 4.24를 사용하는 칼라 0.9.8, 0.9.9는 호환 불가.  
