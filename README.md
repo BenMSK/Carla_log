@@ -57,11 +57,11 @@ $ git clone -b 0.9.7 https://github.com/carla-simulator/carla
 export UE4_ROOT=~/UnrealEngine_4.22
 ```
 이 상태에서 ```make launch```를 진행하면 오류가 발생한다. make launch의 경우는 칼라 map을 수정할 때 필요한 부분을 Unreal 폴더에서 빌드하는 과정인데, map asset이 존재하지 않아서 위 asset을 다운받아야한다.  
-이는 documentation에 [**Assets repository (development only)**]를 그대로 진행하면 된다. 대신, 터미널에 커맨드는 아래와 같이하여 git  
+이는 documentation에 [**Assets repository (development only)**]를 그대로 진행하면 된다. 대신, 터미널에 커맨드는 아래와 같이하여 git clone 진행.    
 ```
 $ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unreal/CarlaUE4/Content/Carla
 ```
-다시 ```make launch```를 진행하면 오류 없이 Unreal Editor가 실행된다. 위 커맨드에서 **0.9.7**을 제외하고 bitbucket에서 받게 되면 현 최신 버전인 0.9.9와 호환되는 map들이 다운받아지므로 **주의**.  
+위 커맨드에서 **0.9.7**을 제외하고 bitbucket에서 받게 되면 현 최신 버전인 0.9.9와 호환되는 map들이 다운받아지므로 **주의**. 다시 ```make launch```를 진행하면 오류 없이 Unreal Editor가 실행된다.   
 이제 Maps 폴더에 있는 .umap을 수정하고 저장(Ctrl+s)한 후, Unreal Editor를 종료한다. 이제 터미널에서 ```make package```를 진행하면 빌드된 칼라 실행 파일이 **Dist** 폴더에 존재하게 된다. 폴더의 이름은 '**LinuxNoEditor**'로 이 폴더의 ./CarlaUE4.sh을 실행하면 된다.  
 ```make PythonAPI```로 파이썬 .so 혹은 .egg를 만들고 칼라를 이용하면 된다.  
 0.9.6과 0.9.7 버전의 경우는 UnrealEngine 4.22를 사용하기에, 서로 Unreal Editor에서 만든 맵이 호환된다. 반면, 위 Engine 버전과 다른 4.23, 4.24를 사용하는 칼라 0.9.8, 0.9.9는 호환 불가.  
