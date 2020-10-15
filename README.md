@@ -40,6 +40,8 @@ CARLA시뮬레이터에서 하고 싶은 대부분은 [Carla GitHub](https://git
 - Semantic Segmentation의 색은 어떻게 바꿀 수 있을까?
 기본적으로 ```make package```를 이용하여 칼라 실행파일을 빌드하면서, 칼라는 c++ 코드를 사용할 수 있게  .so 파일을 만든다. manual_control.py에 있는 000.egg 파일이 그것. 그렇다면, 이 egg source파일에 기반이 되는 c++ 코드를 미리 수정해서 egg source를 빌드하면 된다. 가장 기본인 코드는 carla source 폴더인 LibCarla에 들어간다. 그리고 LibCarla에서 필요한 부분을 수정하고 이를 다시 ```make PythonAPI```를 이용하면 새로운 .egg가 생성된다.
 
+- CARLA를 ROS와 함께 사용하게 되면, 일정 버전 (확인된 버전은 0.9.7) 이상에서부터 packaging 호환이 되지 않는다. 이는 우리가 **.umap**을 수정하는 것 까지만 가능하고 ```make package```가 불가능 하게 된다. 이때 에러는 'libpng' 버전에 대한 에러다. 이 이유는 ROS에 일부 package (ex. ros-kinetic-pcl)의 dependency는 libpng12이고 CARLA 0.9.7 부터는 libpng16-dev에 dependency가 생긴다. 따라서, packaging할 때는 libpng16 버전을 맞추고 (이때 ros package의 일부가 remove 된다...), packaging 완료 후, 만약 ros package에 libpng12에 dependency가 있는 package를 사용한다면 다시 설치해야한다는 번거로움이 생긴다... 예상되는 에러 원인은 ```make PythonAPI``` 부분에 특정 인자 (LIBPNG 이름의 인자가 있던 것 같다...)를 수정하면 에러를 해결할 수 있지 않을까 생각 중이다. 하지만 확실하게 확인된 바는 현재까지 X
+
 ### [4] Build previous source version:
 이전 칼라 버전을 구축하는 방법을 설명한다. 현재 칼라 최신 버전은 0.9.9.x로 0.9.7 버전을 우분투 16.04에서 구축하는 것을 예로 든다.  
 https://carla.readthedocs.io/en/0.9.7/how_to_build_on_linux/  
