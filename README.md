@@ -42,6 +42,13 @@ CARLA시뮬레이터에서 하고 싶은 대부분은 [Carla GitHub](https://git
 
 - CARLA를 ROS와 함께 사용하게 되면, 일정 버전 (확인된 버전은 0.9.7) 이상에서부터 packaging 호환이 되지 않는다. 이는 우리가 **.umap**을 수정하는 것 까지만 가능하고 ```make package```가 불가능 하게 된다. 이때 에러는 'libpng' 버전에 대한 에러다. 이 이유는 ROS에 일부 package (ex. ros-kinetic-pcl)의 dependency는 libpng12이고 CARLA 0.9.7 부터는 libpng16-dev에 dependency가 생긴다. 따라서, packaging할 때는 libpng16 버전을 맞추고 (이때 ros package의 일부가 remove 된다...), packaging 완료 후, 만약 ros package에 libpng12에 dependency가 있는 package를 사용한다면 다시 설치해야한다는 번거로움이 생긴다... 예상되는 에러 원인은 ```make PythonAPI``` 부분에 특정 인자 (LIBPNG 이름의 인자가 있던 것 같다...)를 수정하면 에러를 해결할 수 있지 않을까 생각 중이다. 하지만 확실하게 확인된 바는 현재까지 X
 
+- Carla Vehicle의 physics, dynamics 변경 방법  
+- # Set the dynamics of the vehicle  
+  # front_wheel = carla.WheelPhysicsControl(max_steer_angle = MAX_STEER)  
+  # rear_wheel  = carla.WheelPhysicsControl(max_steer_angle = 0)  
+  # self.player.apply_physics_control(carla.VehiclePhysicsControl(wheels = [front_wheel, front_wheel, rear_wheel, rear_wheel]))  
+  # self.player.apply_physics_control(carla.VehiclePhysicsControl(wheels = [front_wheel, front_wheel, rear_wheel, rear_wheel]))  
+
 ### [4] Build previous source version:
 이전 칼라 버전을 구축하는 방법을 설명한다. 현재 칼라 최신 버전은 0.9.9.x로 0.9.7 버전을 우분투 16.04에서 구축하는 것을 예로 든다.  
 https://carla.readthedocs.io/en/0.9.7/how_to_build_on_linux/  
