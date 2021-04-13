@@ -66,7 +66,8 @@ $ git clone -b 0.9.7 https://github.com/carla-simulator/carla
 export UE4_ROOT=~/UnrealEngine_4.22
 ```
 이 상태에서 ```make launch```를 진행하면 오류가 발생한다. make launch의 경우는 칼라 map을 수정할 때 필요한 부분을 Unreal 폴더에서 빌드하는 과정인데, map asset이 존재하지 않아서 위 asset을 다운받아야한다.  
-이는 documentation에 [**Assets repository (development only)**]를 그대로 진행하면 된다. 대신, 터미널에 커맨드는 아래와 같이하여 git clone 진행.    
+이는 documentation에 [**Assets repository (development only)**]를 그대로 진행하면 된다. 대신, 터미널에 커맨드는 아래와 같이하여 git clone 진행.   
+git lfs 명령어가 되지 않는다면 다음 페이지 참고 [https://snowdeer.github.io/git/2019/10/17/how-to-use-git-lfs/]  
 ```
 $ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unreal/CarlaUE4/Content/Carla
 ```
