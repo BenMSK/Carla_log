@@ -69,7 +69,7 @@ export UE4_ROOT=~/UnrealEngine_4.22
 이는 documentation에 [**Assets repository (development only)**]를 그대로 진행하면 된다. 대신, 터미널에 커맨드는 아래와 같이하여 git clone 진행.   
 git lfs 명령어가 되지 않는다면 다음 페이지 참고 [https://snowdeer.github.io/git/2019/10/17/how-to-use-git-lfs/]  
 ```
-$ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unreal/CarlaUE4/Content/Carla
+{carla설치폴더}$ git lfs clone -b 0.9.7 https://bitbucket.org/carla-simulator/carla-content Unreal/CarlaUE4/Content/Carla
 ```
 위 커맨드에서 **0.9.7**을 제외하고 bitbucket에서 받게 되면 현 최신 버전인 0.9.9와 호환되는 map들이 다운받아지므로 **주의**. 다시 ```make launch```를 진행하면 오류 없이 Unreal Editor가 실행된다.   
 이제 Maps 폴더에 있는 .umap을 수정하고 저장(Ctrl+s)한 후, Unreal Editor를 종료한다. 이제 터미널에서 ```make package```를 진행하면 빌드된 칼라 실행 파일이 **Dist** 폴더에 존재하게 된다. 폴더의 이름은 '**LinuxNoEditor**'로 이 폴더의 ./CarlaUE4.sh을 실행하면 된다.  
